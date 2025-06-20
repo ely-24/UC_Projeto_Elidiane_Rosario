@@ -1,14 +1,32 @@
-# Construction of a Dataset for Automatic Prescription Recommendation
+# Automated Prescription Recommendation System using RAG and Drug Interaction Data
 
-## Project Overview
-This project is part of the "Projects" course (2nd semester, 1st year of the MSc in Bioinformatics – Universidade do Minho) and focuses on constructing a comprehensive dataset and implement a Retrieval-Augmented Generation (RAG) pipeline powered by Large Language Models (LLMs) to support automated prescription recommendations, with a specific focus on antibiotic drug interactions (ADIs).
+This repository contains the resources and code developed for the academic project **"Construction of a Dataset for Automated Prescription Recommendations: A Focus on Antibiotic Drug Interactions using Retrieval-Augmented Generation (RAG)"**.
 
-Antibiotic interactions are a major concern in clinical settings due to their potential to reduce drug efficacy, increase toxicity, or even cause fatal outcomes. By leveraging AI and curated data sources, this project supports safer, more informed, and context-aware prescription decisions.
+## 🧠 Overview
 
-## Phase 1:
+The main goal of this project is to build a dataset and prototype system capable of enhancing clinical prescription recommendations, with a particular emphasis on:
+- Antibiotic drug interactions
+- Semantic retrieval of biomedical knowledge
+- Integration of Retrieval-Augmented Generation (RAG) with Large Language Models (LLMs)
 
-✅ Review of the state of the art
+## 📂 Repository Structure
 
-✅ Definition of the problem and Methodology
+- `chroma_db/`: Local vector store used for semantic search via ChromaDB.
+- `drugbank_chunks.py`: Script for parsing and chunking DrugBank data into structured text units.
+- `drugbank_json.py`: Extracts and formats relevant antibiotic data from DrugBank XML.
+- `drugbank_vetor.py`: Converts extracted chunks into embeddings for use in RAG-based search.
+- `ollama_pure.py`: Basic LLM query execution (without retrieval).
+- `ollama_rag.py`: Retrieval-Augmented Generation pipeline implementation using RAG + LLM.
+- `antibiotics_chunks.zip`: Preprocessed semantic chunks of antibiotics-related knowledge.
+- `antibiotics_dataset.zip`: Main dataset archive built from DrugBank with antibiotic focus.
+- `Apresentação do Projeto.pdf`: Project presentation slides.
+- `UC_Projeto_Elidiane_Do_Rosário_Final.pdf`: Final report of the academic project.
 
-✅ Work plan
+## 🔍 Methodology
+
+1. **Data Extraction**: Used DrugBank XML as the primary source, extracting fields related to antibiotic properties and interactions.
+2. **Data Transformation**: Parsed relevant data into readable chunks and embedded using sentence-transformers.
+3. **Semantic Search**: Used ChromaDB for vector similarity search.
+4. **RAG Pipeline**: Queries are encoded, matched semantically, and passed along with context to a local LLM via Ollama.
+5. **Evaluation**: Use cases focused on verifying how well the system handles complex drug interaction queries.
+
